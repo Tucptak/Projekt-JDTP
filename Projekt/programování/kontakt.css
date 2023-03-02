@@ -2,6 +2,13 @@ div {
    background-color: darkgrey;
 
 }
-h3::first-line {
+h3 {
     background-color: grey;
+}
+p {
+    background-color: grey;
+}
+img {
+    width: 600px;
+    height: 390px;
 }
