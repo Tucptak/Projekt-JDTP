@@ -19,7 +19,7 @@ img {
 body {
     background-color: black;
 }
-.kontakt1:focus {
+.kontakt1:hover {
     color: darkorchid;
 }
 .kontakt2:hover {
