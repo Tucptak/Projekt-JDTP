@@ -6,10 +6,13 @@ h1 {
 .navbar {background-color: black;
     
 }
-.odkazy {color: rgb(94, 35, 161);
+.odkazy {color: rgb(255, 255, 255);
 font-size: 300%;
 margin-left: 400px;
 text-decoration:  none;
+}
+.odkazy:hover {
+    color: blueviolet;
 }
 img {
     padding-left: 50px;
@@ -17,4 +20,7 @@ img {
 }
 .pictop {
     padding-top: 20px;
+}
+body{
+    background-image: url(./background.jpg);
 }
