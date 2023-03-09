@@ -6,12 +6,15 @@ h1 {
 .navbar {background-color: black;
     
 }
-.odkazy {color: white;
-font-size: 200%;
+.odkazy {color: rgb(94, 35, 161);
+font-size: 300%;
+margin-left: 400px;
+text-decoration:  none;
 }
 img {
-    padding-top: 100px;
-    padding-left: 100px;
-    
+    padding-left: 50px;
+    width: 100px;
 }
-   
+.pictop {
+    padding-top: 20px;
+}
