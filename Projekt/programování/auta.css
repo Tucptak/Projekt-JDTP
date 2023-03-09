@@ -1,0 +1,32 @@
+table, th, td {
+    border: 1px solid;
+    
+}
+
+table {
+    width: 50%;
+    table-layout: fixed;
+}
+
+th {
+    width: 33%;
+}
+
+h1 {
+    text-align: center;
+}
+
+td {
+    height: 100px;
+    width: 100px;
+    padding-left: 100px;
+    
+}
+
+img {
+    align-self: center;
+}
+
+.off {
+    padding-right: 50px;
+}
