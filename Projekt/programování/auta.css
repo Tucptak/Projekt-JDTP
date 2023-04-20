@@ -5,7 +5,7 @@ table, th, td {
 
 table {
     width: 50%;
-    table-layout: fixed;
+    
 }
 
 th {
@@ -27,6 +27,3 @@ img {
     align-self: center;
 }
 
-.off {
-    padding-right: 50px;
-}
