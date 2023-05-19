@@ -1,14 +1,9 @@
-h1 {
-    color: firebrick;
-   font-size: 400%; 
-   font-weight: 300%;
-}
 .navbar {background-color: black;
     
 }
 .odkazy {color: rgb(255, 255, 255);
-font-size: 275%;
-margin-left: 235px;
+font-size: 360%;
+margin-left: 280px;
 text-decoration:  none;
 }
 .odkazy:hover {
@@ -24,4 +19,14 @@ img {
 body{
     background-image: url(background.jpg);
     background-size: cover;
+}
+.discovermore {
+    background-color: red;
+    color: black;
+    text-align: center;
+    font-size: 50px;
+    position: relative;
+    left: 42%;
+    margin-top: 700px;
+    border-radius: 25px;
 }
