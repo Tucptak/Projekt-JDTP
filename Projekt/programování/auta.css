@@ -4,7 +4,8 @@ table, th, td {
 }
 
 table {
-    width: 50%;
+    size: relative;
+    width: fixed;
     
 }
 
@@ -19,11 +20,12 @@ h1 {
 td {
     height: 100px;
     width: 100px;
-    padding-left: 100px;
-    
+    text-align: center;   
+    font-weight: bold;
 }
 
-img {
-    align-self: center;
+p {
+    font-family: Arial;
+
 }
 
