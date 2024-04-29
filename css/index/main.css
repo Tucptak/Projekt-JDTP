@@ -6,12 +6,9 @@
 html, body{
 	height: 100vh;
 }
-body{
-	font-family: Arial, sans-serif;
-	/* overflow-y: hidden; */
-}
 
 .maindiv{
+	background-color: black;
 	top: 0;
 	position: absolute;
 	z-index: -1;

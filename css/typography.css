@@ -1,5 +1,7 @@
 /* texty a velikosty atd idk joo */
-
+*{
+	font-family: Arial, sans-serif;
+}
 :root{
 	--text-primary: #dddddd;
 }
