@@ -1,28 +1,38 @@
+.nav-container{
+	padding: 10px 10px;
+}
 .navbar{
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 
-	padding: 0 20px;
+	background-color: rgba(0,0,0,0.7);
 
-	background-color: #333;
-	color: #fff;
+	border-radius: 50px;
+	padding: 0 20px;
+	z-index: 10;
 }
 
 .navbar .navlinks{
 	display: flex;
 	width: 100%;
 	flex-direction: row;
-	justify-content: space-evenly
+	justify-content: space-evenly;
+	padding: 0.5rem;
 }
 .navbar .navlinks li{
 	list-style: none;
 	width: fit-content;
 	height: fit-content;
-	transition: transform 200ms;
+	padding: 0.5rem;
+	border-radius: 5px;
+	background-color: rgba(0,0,0,0.7);
+
+	transition: background-color 200ms, transform 200ms;
 }
 .navbar .navlinks li:hover{
-	background-color: #555;
+	background-color: rgba(0,0,0,0.5);
 	transform: scale(1.05);
-	transition: transform 200ms;
+	transition: background-color 200ms, transform 200ms;
+	cursor: pointer;
 }
