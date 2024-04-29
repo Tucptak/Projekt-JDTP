@@ -1,0 +1,20 @@
+/* texty a velikosty atd idk joo */
+
+:root{
+	--text-primary: #dddddd;
+}
+
+p,
+.type-p {
+	color: var(--text-primary);
+	font-size: 1.6rem;
+	line-height: 1.6;
+}
+
+a,
+.type-a {
+	color: var(--text-primary);
+	font-size: 1.6rem;
+	line-height: 1.6;
+	text-decoration: none;
+}
