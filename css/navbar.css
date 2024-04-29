@@ -17,7 +17,12 @@
 }
 .navbar .navlinks li{
 	list-style: none;
+	width: fit-content;
+	height: fit-content;
+	transition: transform 200ms;
 }
-.navbar .navlinks li a:hover{
+.navbar .navlinks li:hover{
 	background-color: #555;
+	transform: scale(1.05);
+	transition: transform 200ms;
 }
