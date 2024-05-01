@@ -11,6 +11,10 @@ def index():
 def about():
 	return render_template("about.html")
 
+@app.route("/comparison")
+def comparison():
+	return render_template("comparison.html")
+
 
 if __name__ == "__main__":
 	app.run(debug=True)
