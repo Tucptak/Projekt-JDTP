@@ -2,9 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/navbar.css">
+	<link rel="stylesheet" href="/static/css/typography.css">
+	<link rel="stylesheet" href="/static/css/about/main.css">
+	<link rel="stylesheet" href="/static/css/login/login.css">
     <title>login</title>
 </head>
 <body>
-
+<div class="nav-container">
+    <nav class="navbar">
+        <a href="/" class="logo-a"><img src="/static/assets/logo.svg" alt="Logo" class="logo"></a>
+        <ul class="navlinks">
+            <li><a href="/about">About us</a></li>
+            <li><a href="#">Contacts</a></li>
+            <li><a href="/comparison">Comparison</a></li>
+            <li><a href="/login">Log in</a></li>
+        </ul>
+    </nav>
+</div>
+    <form>
+  <label for="">Username:</label>
+  <input type="text" name="username" required/><br/>
+  <label for ="">Password:</label>
+  <input type="password" name="password" required/><br/>
+  <input type="submit" value="Log in">
+</form>
 </body>
 </html>
