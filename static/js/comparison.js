@@ -1,14 +1,3 @@
-const get_years = {
-	async: true,
-	crossDomain: true,
-	url: 'https://car-data.p.rapidapi.com/cars/years',
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '04305f6bfcmsha61960de0a45264p1ac656jsn12283b6499d4',
-		'X-RapidAPI-Host': 'car-data.p.rapidapi.com'
-	}
-};
-
 const get_makes = {
 	async: true,
 	crossDomain: true,
@@ -30,6 +19,29 @@ const get_types = {
 		'X-RapidAPI-Host': 'car-data.p.rapidapi.com'
 	}
 };
+
+const get_models = {
+	async: true,
+	crossDomain: true,
+	url: 'https://car-data.p.rapidapi.com/cars/models',
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '04305f6bfcmsha61960de0a45264p1ac656jsn12283b6499d4',
+		'X-RapidAPI-Host': 'car-data.p.rapidapi.com'
+	}
+};
+
+const get_years = {
+	async: true,
+	crossDomain: true,
+	url: 'https://car-data.p.rapidapi.com/cars/years',
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '04305f6bfcmsha61960de0a45264p1ac656jsn12283b6499d4',
+		'X-RapidAPI-Host': 'car-data.p.rapidapi.com'
+	}
+};
+
 
 $.ajax(get_years).done(function (response) {
 	response = response.sort(function(a, b){return b - a});
