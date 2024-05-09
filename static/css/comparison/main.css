@@ -4,8 +4,7 @@
 
 *{
 	box-sizing: border-box;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 0;
 }
 
 html, body{
@@ -31,14 +30,16 @@ html, body{
 	width: 100vw;
 }
 
-.costom_select select {
+.custom_select select {
 	display: flex;
 	color: var(--white);
 	background-color: #111111;
 	border: 2px gray solid;
 	border-radius: 15px;
 	padding: 10px;
+	margin-bottom: 10px;
 	width: 75%;
 	height: 100px;
 	font-size: 1.4rem;
+	margin-left: auto; margin-right: auto;
 }
