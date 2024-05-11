@@ -12,21 +12,24 @@
 <body>
 <div class="nav-container">
     <nav class="navbar">
-        <a href="/" class="logo-a"><img src="/static/assets/logo.svg" alt="Logo" class="logo"></a>
+        <a href="/index" class="logo-a"><img src="/static/assets/logo.svg" alt="Logo" class="logo"></a>
         <ul class="navlinks">
             <li><a href="/about">About us</a></li>
-            <li><a href="#">Contacts</a></li>
+            <li><a href="contacts">Contacts</a></li>
             <li><a href="/comparison">Comparison</a></li>
             <li><a href="/login">Log in</a></li>
         </ul>
     </nav>
 </div>
-    <form>
+<form action="{{ url_for('process_login') }}" method="POST">
   <label for="">Username:</label>
   <input type="text" name="username" required/><br/>
   <label for ="">Password:</label>
   <input type="password" name="password" required/><br/>
   <input type="submit" value="Log in">
+</form>
+<form action="{{ url_for('signin') }}" method="get">
+    <input type="submit" value="Sign in">
 </form>
 </body>
 </html>
