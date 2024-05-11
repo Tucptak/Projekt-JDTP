@@ -33,5 +33,9 @@
 
 <h1 style="color:white">You´re logged in as {{username}}</h1>
 
+<form action="{{ url_for('logout') }}" method="get">
+    <input type="submit" value="Log out">
+</form>
+
 </body>
 </html>
