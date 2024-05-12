@@ -89,38 +89,30 @@ def login():
 
 
 
-@app.route('/signin')
+@app.route('/signin', methods=["POST", "GET"])
 def signin():
-    return render_template("signin.html")
+    if request.method == "GET":
+        return render_template("signin.html")
 
+    else:
+        username = request.form.get("username")
+        password = request.form.get("password")
 
+        uzivatele = precti_json("users")
+        for u in uzivatele:
+            if u["username"] == username:
+                return redirect(url_for("login"))
+            novy_uzivatel = {
+                "username": username,
+                "password": password,
+                "color": "white",
+                "text_color": "black"
+            }
 
+            zapis_do_json("users", novy_uzivatel)
 
-
-@app.route('/process-signin', methods=["POST"])
-def process_signin():
-    username = request.form.get("username")
-    password = request.form.get("password")
-
-
-    uzivatele = precti_json("users")
-    for u in uzivatele:
-        if u ["username"] == username:
             return redirect(url_for("login"))
 
-
-    novy_uzivatel ={
-        "username": username,
-        "password": password,
-        "color": "white",
-        "text_color": "black"
-    }
-
-
-    zapis_do_json("users", novy_uzivatel)
-
-
-    return redirect(url_for("login"))
 
 @app.route('/logout')
 def logout():
