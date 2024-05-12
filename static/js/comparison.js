@@ -61,62 +61,68 @@ $.ajax(get_makes).done(function (response) {
 
 
 $("#make_select_1").change(function () {
-	
+	showLoadingText()
 	$.ajax(get_types).done(function (response) {
 		response.forEach(element => {
 			$('#type_select_1').append(`<option value="${element}">${element}</option>`);
 		});
+		hideLoadingText()
 	});
 });
 
 
 $("#make_select_2").change(function () {
-	
+	showLoadingText()
 	$.ajax(get_types).done(function (response) {
 		response.forEach(element => {
 			$('#type_select_2').append(`<option value="${element}">${element}</option>`);
 		});
+		hideLoadingText()
 	});
 });
 
 $("#type_select_1").change(function () {
-	
+	showLoadingText()
 	$.ajax(get_years).done(function (response) {
 		response = response.sort(function(a, b){return b - a});
 		response.forEach(element => {
 			$('#year_select_1').append(`<option value="${element}">${element}</option>`);
 		});
+		hideLoadingText()
 	});
 });
 
 
 $("#type_select_2").change(function () {
-	
+	showLoadingText()
 	$.ajax(get_years).done(function (response) {
 		response = response.sort(function(a, b){return b - a});
 		response.forEach(element => {
 			$('#year_select_2').append(`<option value="${element}">${element}</option>`);
 		});
+		hideLoadingText()
 	});
 });
 
 
 $("#year_select_1").change(function () {
-	
+	showLoadingText()
 	$.ajax(get_models).done(function (response) {
 		response.forEach(element => {
 			$('#model_select_1').append(`<option value="${element}">${element}</option>`);
 		});
+		hideLoadingText()
 	});
 });
 
 
 $("#year_select_2").change(function () {
-	
+	showLoadingText()
 	$.ajax(get_models).done(function (response) {
 		response.forEach(element => {
 			$('#model_select_2').append(`<option value="${element}">${element}</option>`);
 		});
+		hideLoadingText()
 	});
 });
 
@@ -159,3 +165,10 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+function showLoadingText() {
+    $("#loading-text").css("display", "block");
+}
+
+function hideLoadingText() {
+    $("#loading-text").css("display", "none");
+}
