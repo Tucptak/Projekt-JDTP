@@ -146,3 +146,16 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    const siblingDropdowns = document.getElementsByClassName("select_child2");
+
+    Array.from(siblingDropdowns).forEach(function(siblingDropdown) {
+        siblingDropdown.addEventListener("change", function(event) {
+            const nextDropdown3 = siblingDropdown.nextElementSibling; 
+            if (nextDropdown3 && nextDropdown3.classList.contains("select_child3")) {
+                nextDropdown3.style.display = "block"; 
+            }
+        });
+    });
+});
+
