@@ -104,7 +104,6 @@ $("#type_select_2").change(function () {
 $("#year_select_1").change(function () {
 	
 	$.ajax(get_models).done(function (response) {
-		response = response.sort(function(a, b){return b - a});
 		response.forEach(element => {
 			$('#model_select_1').append(`<option value="${element}">${element}</option>`);
 		});
@@ -115,9 +114,21 @@ $("#year_select_1").change(function () {
 $("#year_select_2").change(function () {
 	
 	$.ajax(get_models).done(function (response) {
-		response = response.sort(function(a, b){return b - a});
 		response.forEach(element => {
 			$('#model_select_2').append(`<option value="${element}">${element}</option>`);
 		});
 	});
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const parentDropdowns = document.getElementsByClassName("select_parent");
+
+    Array.from(parentDropdowns).forEach(function(parentDropdown) {
+        parentDropdown.addEventListener("change", function(event) {
+            const nextDropdown = parentDropdown.nextElementSibling; 
+            if (nextDropdown && nextDropdown.classList.contains("select_child")) {
+                nextDropdown.style.display = "block"; 
+            }
+        });
+    });
 });

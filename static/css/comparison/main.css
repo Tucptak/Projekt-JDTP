@@ -43,3 +43,8 @@ html, body{
 	font-size: 1.4rem;
 	margin-left: auto; margin-right: auto;
 }
+
+.first_car_div .select_parent, .second_car_div .select_parent {
+	display: block;
+}
+
