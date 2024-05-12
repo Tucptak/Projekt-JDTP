@@ -132,3 +132,17 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const childDropdowns = document.getElementsByClassName("select_child");
+
+    Array.from(childDropdowns).forEach(function(childDropdown) {
+        childDropdown.addEventListener("change", function(event) {
+            const nextDropdown2 = childDropdown.nextElementSibling; 
+            if (nextDropdown2 && nextDropdown2.classList.contains("select_child2")) {
+                nextDropdown2.style.display = "block"; 
+            }
+        });
+    });
+});
+
