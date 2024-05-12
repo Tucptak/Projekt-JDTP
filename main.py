@@ -7,20 +7,20 @@ app.config["SECRET_KEY"] = "123456789"
 
 @app.route("/index")
 def index():
-	return render_template("index.html")
+    return render_template("index.html")
 
 
 @app.route("/about")
 def about():
-	return render_template("about.html")
+    return render_template("about.html")
 
 @app.route("/comparison")
 def comparison():
-	return render_template("comparison.html")
+    return render_template("comparison.html")
 
 @app.route("/contacts")
 def contacts():
-	return render_template("contacts.html")
+    return render_template("contacts.html")
 
 def precti_json(nazev_souboru):
     aktivni_soubor = os.path.dirname(__file__)
@@ -62,33 +62,37 @@ def account():
     return render_template("account.html", username=username, color=color, text_color=text_color)
 
 
-@app.route('/login')
+@app.route('/login', methods=["POST", "GET"])
 def login():
-    return render_template("login.html")
+
+    if request.method == "GET":
+        return render_template("login.html")
+
+    else:
+
+
+        username = request.form.get("username")
+        password = request.form.get("password")
+
+
+        uzivatele = precti_json("users")
+        for u in uzivatele:
+            if u ["username"] == username and u ["password"] == password:
+                session["username"]=username
+
+                res = make_response(redirect(url_for("account")))
+                res.set_cookie("color", u["color"])
+                res.set_cookie("text_color", u["text_color"])
+                return res
+
+        return redirect(url_for("login"))
+
 
 
 @app.route('/signin')
 def signin():
     return render_template("signin.html")
 
-
-@app.route("/process-login", methods=["POST"])
-def process_login():
-    username = request.form.get("username")
-    password = request.form.get("password")
-
-
-    uzivatele = precti_json("users")
-    for u in uzivatele:
-        if u ["username"] == username and u ["password"] == password:
-            session["username"]=username
-
-            res = make_response(redirect(url_for("account")))
-            res.set_cookie("color", u["color"])
-            res.set_cookie("text_color", u["text_color"])
-            return res
-
-    return redirect(url_for("login"))
 
 
 
@@ -125,4 +129,4 @@ def logout():
     return redirect(url_for("index"))
 
 if __name__ == "__main__":
-	app.run(debug=True)
+    app.run(debug=True)
