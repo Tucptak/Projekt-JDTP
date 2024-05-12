@@ -40,9 +40,6 @@ def zapis_do_json(nazev_souboru, data_na_zapis):
     UZIVATELE.append(data_na_zapis)
     with open(json_url, "w", encoding="utf-8") as outline:
         json.dump(UZIVATELE, outline)
-
-
-
     return
 
 
@@ -55,11 +52,9 @@ def rozcestnik():
 @app.route('/account')
 def account():
     username = session.get("username")
-    color = request.cookies.get("color")
-    text_color = request.cookies.get("text_color")
     if not username:
         return redirect(url_for("login"))
-    return render_template("account.html", username=username, color=color, text_color=text_color)
+    return render_template("account.html", username=username)
 
 
 @app.route('/login', methods=["POST", "GET"])
@@ -79,10 +74,7 @@ def login():
         for u in uzivatele:
             if u ["username"] == username and u ["password"] == password:
                 session["username"]=username
-
                 res = make_response(redirect(url_for("account")))
-                res.set_cookie("color", u["color"])
-                res.set_cookie("text_color", u["text_color"])
                 return res
 
         return redirect(url_for("login"))
@@ -104,15 +96,32 @@ def signin():
                 return redirect(url_for("login"))
             novy_uzivatel = {
                 "username": username,
-                "password": password,
-                "color": "white",
-                "text_color": "black"
+                "password": password
             }
 
             zapis_do_json("users", novy_uzivatel)
 
             return redirect(url_for("login"))
 
+@app.route('/del')
+def delete_account():
+    if session.get("username") is not None:
+        
+        with open("static/data/users.json", "r", encoding="utf-8") as file:
+            users = json.load(file)
+        for i, u in enumerate(users):
+            if u["username"] == session["username"]:
+                users.pop(i)
+                break
+        
+        with open("static/data/users.json", "w", encoding="utf-8") as file:
+            json.dump(users, file)
+            session.pop("username")
+        return redirect(url_for("login"))
+    
+
+    else:
+        return "-1"
 
 @app.route('/logout')
 def logout():
