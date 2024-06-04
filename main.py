@@ -22,6 +22,10 @@ def comparison():
 def contacts():
     return render_template("contacts.html")
 
+@app.route("/catalog")
+def catalog():
+    return render_template("catalog.html")
+
 def precti_json(nazev_souboru):
     aktivni_soubor = os.path.dirname(__file__)
     SITE_ROOT = os.path.realpath(aktivni_soubor)
