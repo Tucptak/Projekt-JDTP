@@ -1,29 +1,23 @@
-let currentIndex = 0;
+var body = document.body
+var check = document.querySelector('#check')
+var box = document.querySelector('.box')
+var ball = document.querySelector('.ball')
 
-function showSlide(index) {
-    const slides = document.querySelectorAll('.slide');
-    const slider = document.querySelector('.slider');
-    
-    if (index >= slides.length) {
-        currentIndex = 0;
-    } else if (index < 0) {
-        currentIndex = slides.length - 1;
-    } else {
-        currentIndex = index;
-    }
 
-    const offset = -currentIndex * 100;
-    slider.style.transform = `translateX(${offset}%)`;
-}
+check.addEventListener('change',function(){
+  if(this.checked == true){
+    box.setAttribute('style','background-color:rgb(252, 251, 244);')
+    ball.setAttribute('style','transform:translatex(100%);')
+    body.setAttribute('style','background-color:rgb(20, 20, 20); rgb(252, 251, 244);') 
 
-function nextSlide() {
-    showSlide(currentIndex + 1);
-}
+  }
 
-function prevSlide() {
-    showSlide(currentIndex - 1);
-}
 
-document.addEventListener('DOMContentLoaded', () => {
-    showSlide(currentIndex);
-});
+  if(this.checked == false){
+    box.setAttribute('style','background-color:rgb(20, 20, 20); rgb(252, 251, 244);')
+    ball.setAttribute('style','transform:translatex(0%);')
+    body.setAttribute('style','background-color:rgb(252, 251, 244); color:rgb(20, 20, 20);')
+
+  }
+})
+
