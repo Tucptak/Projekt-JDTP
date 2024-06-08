@@ -21,12 +21,33 @@
 				<li><a href="/catalog">Catalog</a></li>
 				<li><a href="/login">Log in</a></li>
 			</ul>
-			<button><a href="/" class="logo-a" id="svg_button"><img src="/static/assets/icon.svg" alt="Logo" class="logo"></a></button>
+			<div class="toggle_switch">
+				<div class="btn">
+				  <input type="checkbox" name="check" id="check">
+				  <label for="check">
+					<div class="box">
+					  
+					  <div class="ball"></div>
+
+					  <div class="scenary">
+						<div class="moon">
+							<img src="static/assets/moon.svg" alt="Moon">
+						</div>
+
+						<div class="sun">
+							<img src="static/assets/sun.svg" alt="Sun">
+						</div>
+					  </div>
+					  
+					</div>
+				  </label>
+				</div>
+			  </div>	
 		</nav>
 	</div>
 	<main class="main">
 		<div class="first_car_div">
-			<h1>First car</h1>
+			<h1 class="text">First car</h1>
 			<div class="custom_select">
 				<select id="make_select_1" name="make" class="select_parent">
 					<option value="">
@@ -55,7 +76,7 @@
 			</div>
 		</div>
 		<div class="second_car_div">
-			<h1>Second car</h1>
+			<h1 class="text">Second car</h1>
 			<div class="custom_select">
 				<select id="make_select_2" name="make" class="select_parent">
 					<option value="">

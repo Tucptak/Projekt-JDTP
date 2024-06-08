@@ -12,7 +12,6 @@ check.addEventListener('change',function(){
     ball.setAttribute('style','transform:translatex(100%);')
     body.setAttribute('style','background-color:rgb(20, 20, 20); color:rgb(245, 230, 230);')
     navcontainer.setAttribute('style','background-color:rgb(20, 20, 20); color:rgb(245, 230, 230);')
-    navbar.setAttribute('style','background-color:rgba(0,0,0,0.7);') 
 
   }
 
