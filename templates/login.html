@@ -20,18 +20,40 @@
             <li><a href="/catalog">Catalog</a></li>
             <li><a href="/login">Log in</a></li>
         </ul>
-        <button><a href="/" class="logo-a" id="svg_button"><img src="/static/assets/icon.svg" alt="Logo" class="logo"></a></button>
+        <div class="toggle_switch">
+            <div class="btn">
+              <input type="checkbox" name="check" id="check">
+              <label for="check">
+                <div class="box">
+                  
+                  <div class="ball"></div>
+
+                  <div class="scenary">
+                    <div class="moon">
+                        <img src="static/assets/moon.svg" alt="Moon">
+                    </div>
+
+                    <div class="sun">
+                        <img src="static/assets/sun.svg" alt="Sun">
+                    </div>
+                  </div>
+                  
+                </div>
+              </label>
+            </div>
+          </div>
     </nav>
 </div>
 <form action="{{ url_for('login') }}" method="POST">
-  <label for="">Username:</label>
+  <label for="" class="text">Username:</label>
   <input type="text" name="username" required/><br/>
-  <label for ="">Password:</label>
+  <label for ="" class="text">Password:</label>
   <input type="password" name="password" required/><br/>
   <input type="submit" value="Log in">
 </form>
 <form action="{{ url_for('signin') }}" method="get">
     <input type="submit" value="Sign in">
 </form>
+<script src="/static/js/login.js"></script>
 </body>
 </html>
