@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/static/css/navbar.css">
     <link rel="stylesheet" href="/static/css/typography.css">
     <link rel="stylesheet" href="/static/css/about/main.css">
-    <link rel="stylesheet" href="/static/css/login/login.css">
+    <link rel="stylesheet" href="/static/css/account/account.css">
     <title>Account</title>
 
 </head>
@@ -46,10 +46,12 @@
 </div>
 
     <main>
-        <p class="text">Account</p>
-        <p class="text">Welcome, {{ username }}!</p>
-        <a href="{{ url_for('logout') }}"><button id="logout-btn">Log out</button></a>
-        <a href="{{ url_for('delete_account') }}"><button id="delete-btn">Delete your account??</button></a>
+		<div id="main">
+			<p class="text">Account</p>
+			<p class="text">Welcome, {{ username }}!</p>
+			<a href="{{ url_for('logout') }}"><button id="logout-btn">Log out</button></a>
+			<a href="{{ url_for('delete_account') }}"><button id="delete-btn">Delete your account??</button></a>
+		</div>
     </main>
 
 </body>
