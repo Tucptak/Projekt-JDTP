@@ -12,9 +12,21 @@ form{
 
 form input {
     font-family: Arial, sans-serif;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.6rem;
     background-color: #ECECEC;
     border: 1px black solid;
     border-radius: 5px;
-    padding: 2px;
+    padding: 4px;
+    font-size: 1.1rem;
+}
+form input[type="submit"]{
+    
+    width: 50%;
+    align-self: center;
+}
+
+form label {
+	font-family: Arial, sans-serif;
+	font-size: 1.2rem;
+	align-self: center;
 }
