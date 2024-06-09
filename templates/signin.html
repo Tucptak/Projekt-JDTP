@@ -37,7 +37,6 @@
 								<img src="static/assets/sun.svg" alt="Sun">
 							</div>
 						</div>
-					
 					</div>
 				</label>
 			</div>
@@ -52,6 +51,9 @@
 	<label for ="">Password again:</label>
 	<input type="password2" name="password2" required/><br/>
 	<input type="submit" value="Sign in">
+</form>
+<form action="{{ url_for('login') }}" method="get">
+	<input type="submit" value="Log in instead	">
 </form>
 </body>
 <script src="/static/js/signin.js"></script>
