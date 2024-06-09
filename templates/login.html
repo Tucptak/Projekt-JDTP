@@ -1,58 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/css/navbar.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/static/css/navbar.css">
 	<link rel="stylesheet" href="/static/css/typography.css">
 	<link rel="stylesheet" href="/static/css/about/main.css">
 	<link rel="stylesheet" href="/static/css/login/login.css">
-    <title>login</title>
+	<title>login</title>
 </head>
 <body>
 <div class="nav-container">
-    <nav class="navbar">
-        <a href="/index" class="logo-a"><img src="/static/assets/logo.svg" alt="Logo" class="logo"></a>
-        <ul class="navlinks">
-            <li><a href="/about">About us</a></li>
-            <li><a href="contacts">Contacts</a></li>
-            <li><a href="/comparison">Comparison</a></li>
-            <li><a href="/catalog">Catalog</a></li>
-            <li><a href="/login">Log in</a></li>
-        </ul>
-        <div class="toggle_switch">
-            <div class="btn">
-              <input type="checkbox" name="check" id="check">
-              <label for="check">
-                <div class="box">
-                  
-                  <div class="ball"></div>
+	<nav class="navbar">
+		<a href="/index" class="logo-a"><img src="/static/assets/logo.svg" alt="Logo" class="logo"></a>
+		<ul class="navlinks">
+			<li><a href="/about">About us</a></li>
+			<li><a href="contacts">Contacts</a></li>
+			<li><a href="/comparison">Comparison</a></li>
+			<li><a href="/catalog">Catalog</a></li>
+			<li><a href="/login">Log in</a></li>
+		</ul>
+		<div class="toggle_switch">
+			<div class="btn">
+			  <input type="checkbox" name="check" id="check">
+			  <label for="check">
+				<div class="box">
+				
+					<div class="ball"></div>
 
-                  <div class="scenary">
-                    <div class="moon">
-                        <img src="static/assets/moon.svg" alt="Moon">
-                    </div>
+					<div class="scenary">
+						<div class="moon">
+							<img src="static/assets/moon.svg" alt="Moon">
+						</div>
 
-                    <div class="sun">
-                        <img src="static/assets/sun.svg" alt="Sun">
-                    </div>
-                  </div>
-                  
-                </div>
-              </label>
-            </div>
-          </div>
-    </nav>
+						<div class="sun">
+							<img src="static/assets/sun.svg" alt="Sun">
+						</div>
+					</div>
+					
+				</div>
+			  </label>
+			</div>
+		  </div>
+	</nav>
 </div>
 <form action="{{ url_for('login') }}" method="POST">
-  <label for="" class="text">Username:</label>
-  <input type="text" name="username" required/><br/>
-  <label for ="" class="text">Password:</label>
-  <input type="password" name="password" required/><br/>
-  <input type="submit" value="Log in">
+	<label for="" class="text">Username:</label>
+	<input type="text" name="username" required/><br/>
+	<label for ="" class="text">Password:</label>
+	<input type="password" name="password" required/><br/>
+	<input type="submit" value="Log in">
 </form>
 <form action="{{ url_for('signin') }}" method="get">
-    <input type="submit" value="Sign in">
+	<input type="submit" value="Sign in instead">
 </form>
 
 <script src="/static/js/login.js"></script>
