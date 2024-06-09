@@ -184,11 +184,13 @@ var dropdown = document.querySelectorAll('.select_parent')
 var dropdownchild = document.querySelectorAll('.select_child')
 var dropdownchild2 = document.querySelectorAll('.select_child2')
 var dropdownchild3 = document.querySelectorAll('.select_child3') 
+var checkbox = document.getElementById('check');
 
 
 
-check.addEventListener('change',function(){
-  if(this.checked == true){
+function applyTheme(theme) {
+	if (theme === 'dark') {
+	  checkbox.checked = true;
     box.setAttribute('style','background-color:rgb(255, 255, 255);')
     ball.setAttribute('style','transform:translatex(100%);')
     body.setAttribute('style','background-color:rgb(20, 20, 20); color:rgb(245, 230, 230);')
@@ -213,12 +215,8 @@ check.addEventListener('change',function(){
 		dropdownchild3.style.backgroundColor = "white" 
 	  });
 	   
-
-
-  }
-
-
-  if(this.checked == false){
+	} else {
+    checkbox.checked = false;
     box.setAttribute('style','background-color:rgb(20, 20, 20); rgb(255, 255, 255);')
     ball.setAttribute('style','transform:translatex(0%);')
     body.setAttribute('style','background-color:rgb(245, 230, 230); color:rgb(20, 20, 20);')
@@ -245,5 +243,21 @@ check.addEventListener('change',function(){
 	  });
 
   }
-})
+}
+
+checkbox.addEventListener('change', function () {
+  if (this.checked) {
+    localStorage.setItem('theme', 'dark');
+    applyTheme('dark');
+  } else {
+    localStorage.setItem('theme', 'light');
+    applyTheme('light');
+  }
+});
+
+
+window.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  applyTheme(savedTheme);
+});
 

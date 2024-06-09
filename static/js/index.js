@@ -32,17 +32,17 @@ function applyTheme(theme) {
 }
 
 checkbox.addEventListener('change', function () {
-  if (this.checked) {
-    localStorage.setItem('theme', 'dark');
-    applyTheme('dark');
-  } else {
-    localStorage.setItem('theme', 'light');
-    applyTheme('light');
-  }
-});
-
-
-window.addEventListener('DOMContentLoaded', () => {
-  const savedTheme = localStorage.getItem('theme') || 'light';
-  applyTheme(savedTheme);
-});
+    if (this.checked) {
+      localStorage.setItem('theme', 'dark');
+      applyTheme('dark');
+    } else {
+      localStorage.setItem('theme', 'light');
+      applyTheme('light');
+    }
+  });
+  
+  
+  window.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    applyTheme(savedTheme);
+  });
