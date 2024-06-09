@@ -20,9 +20,15 @@ form input {
     font-size: 1.1rem;
 }
 form input[type="submit"]{
-    
     width: 50%;
     align-self: center;
+	transition: transform 0.2s, background-color 0.2s;
+}
+
+form input[type="submit"]:hover {
+	cursor: pointer;
+	transform: scale(1.05);
+	transition: transform 0.2s, background-color 0.2s;
 }
 
 form label {
