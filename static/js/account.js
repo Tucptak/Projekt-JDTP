@@ -55,3 +55,21 @@ window.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('theme') || 'light';
   applyTheme(savedTheme);
 });
+
+const deleteBtn = document.getElementById('delete-btn');
+  const popup = document.getElementById('confirm-popup');
+  const confirmBtn = document.getElementById('confirm-delete');
+  const cancelBtn = document.getElementById('cancel-delete');
+
+  deleteBtn.addEventListener('click', function(event) {
+    event.preventDefault();
+    popup.style.display = 'flex';
+  });
+
+  cancelBtn.addEventListener('click', function() {
+    popup.style.display = 'none';
+  });
+
+  confirmBtn.addEventListener('click', function() {
+    window.location.href = deleteBtn.parentElement.href;
+  });
