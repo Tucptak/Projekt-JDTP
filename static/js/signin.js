@@ -52,6 +52,6 @@ checkbox.addEventListener('change', function () {
 
 
 window.addEventListener('DOMContentLoaded', () => {
-  const savedTheme = localStorage.getItem('theme') || 'light';
-  applyTheme(savedTheme);
+	const savedTheme = localStorage.getItem('theme') || 'light';
+	applyTheme(savedTheme);
 });
