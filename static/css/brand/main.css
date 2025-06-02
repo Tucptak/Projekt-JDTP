@@ -1,0 +1,37 @@
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 1rem;
+    background-color: #f5f5f5;
+}
+h1 {
+    text-align: center;
+}
+.cars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.car-card {
+    background: rgb(255, 255, 255);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 1rem;
+    transition: transform 0.2s;
+}
+.car-card:hover {
+    transform: scale(1.03);
+}
+.car-image {
+    width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}

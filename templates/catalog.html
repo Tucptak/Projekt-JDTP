@@ -8,44 +8,52 @@
 	<link rel="stylesheet" href="/static/css/about/main.css">
 	<link rel="stylesheet" href="/static/css/login/login.css">
 	<link rel="stylesheet" href="/static/css/catalog/main.css">
-
-	<title>About</title>
+	<title>Catalog</title>
 </head>
 <body>
 	<div class="nav-container">
 		<nav class="navbar">
 			<a href="/" class="logo-a"><img src="/static/assets/logo.svg" alt="Logo" class="logo"></a>
 			<ul class="navlinks">
-				<li><a href="about">About us</a></li>
-				<li><a href="contacts">Contacts</a></li>
-				<li><a href="comparison">Comparison</a></li>
-				<li><a href="#">Catalog</a></li>
-				<li><a href="login">Log in</a></li>
+				<li><a href="/about">About us</a></li>
+				<li><a href="/contacts">Contacts</a></li>
+				<li><a href="/comparison">Comparison</a></li>
+				<li><a href="/catalog">Catalog</a></li>
+				<li><a href="/login">Log in</a></li>
 			</ul>
             <div class="toggle_switch">
 				<div class="btn">
 				  <input type="checkbox" name="check" id="check">
 				  <label for="check">
 					<div class="box">
-					  
 					  <div class="ball"></div>
-
 					  <div class="scenary">
 						<div class="moon">
-							<img src="static/assets/moon.svg" alt="Moon">
+							<img src="/static/assets/moon.svg" alt="Moon">
 						</div>
-
 						<div class="sun">
-							<img src="static/assets/sun.svg" alt="Sun">
+							<img src="/static/assets/sun.svg" alt="Sun">
 						</div>
 					  </div>
-					  
 					</div>
 				  </label>
 				</div>
-			  </div>			  
+			</div>			  
 		</nav>
 	</div>
+
+	<main class="catalog-container">
+		<h1>Car Brands</h1>
+		<div class="brands-grid">
+			{% for brand in brands %}
+				<div class="brand-card">
+					<a href="/catalog/{{ brand.name | urlencode }}">
+						<div class="brand-name">{{ brand.name }}</div>
+					</a>
+				</div>
+			{% endfor %}
+		</div>
+	</main>
 
 	<script src="/static/js/catalog.js"></script>
 </body>

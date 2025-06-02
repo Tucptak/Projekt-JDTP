@@ -1,0 +1,12 @@
+<!-- templates/car.html -->
+<h1>{{ car.model }}</h1>
+<img src="{{ car.image_url }}" alt="{{ car.model }}" class="car-image" onerror="this.src='/static/assets/cars/default.jpg'" width="300" />
+<p>Price Range: ${{ car.price_min }} - ${{ car.price_max }}</p>
+<p>Type: {{ car.type }}</p>
+
+<h3>Similar Cars</h3>
+<ul>
+  {% for similar in similar_cars %}
+    <li>{{ similar.model }} - ${{ similar.price_min }} to ${{ similar.price_max }}</li>
+  {% endfor %}
+</ul>

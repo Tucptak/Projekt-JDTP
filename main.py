@@ -1,6 +1,11 @@
 from flask import Flask, render_template, session, request, url_for, make_response, redirect
 import os
 import json
+from models import setup_database
+from models import setup_database, get_db_connection, insert_sample_data  
+
+setup_database()
+insert_sample_data()
 
 app = Flask(__name__, template_folder="templates", static_folder="static")
 app.config["SECRET_KEY"] = "123456789"
@@ -24,7 +29,47 @@ def contacts():
 
 @app.route("/catalog")
 def catalog():
-	return render_template("catalog.html")
+	conn = get_db_connection()
+	brands = conn.execute("SELECT * FROM brands").fetchall()
+	conn.close()
+	return render_template("catalog.html", brands=brands)
+
+
+@app.route("/catalog/<brand_name>")
+def show_brand(brand_name):
+	conn = get_db_connection()
+	brand = conn.execute("SELECT * FROM brands WHERE name = ?", (brand_name,)).fetchone()
+	if not brand:
+		conn.close()
+		return "Brand not found", 404
+	cars = conn.execute("SELECT * FROM cars WHERE brand_id = ?", (brand["id"],)).fetchall()
+	conn.close()
+	return render_template("brand.html", brand=brand, cars=cars)
+
+
+@app.route("/catalog/<brand_name>/<car_model>")
+def show_car(brand_name, car_model):
+	conn = get_db_connection()
+	car = conn.execute("""
+		SELECT * FROM cars
+		WHERE model = ? AND brand_id = (SELECT id FROM brands WHERE name = ?)
+	""", (car_model, brand_name)).fetchone()
+
+
+
+	if not car:
+		conn.close()
+		return "Car not found", 404
+
+	similar_cars = conn.execute("""
+		SELECT * FROM cars
+		WHERE type = ? AND id != ? AND ABS((price_min + price_max)/2 - (? + ?)/2) < 10000
+		LIMIT 5
+	""", (car["type"], car["id"], car["price_min"], car["price_max"])).fetchall()
+
+	conn.close()
+	return render_template("car.html", car=car, similar_cars=similar_cars)
+
 
 def precti_json(nazev_souboru):
 	aktivni_soubor = os.path.dirname(__file__)

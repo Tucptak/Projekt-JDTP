@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{{ brand.name }} Cars</title>
+	<link rel="stylesheet" href="/static/css/brand/main.css">
+</head>
+<body>
+	<h1>{{ brand.name }} Cars</h1>
+
+	<div class="cars-grid">
+		{% for car in cars %}
+			<div class="car-card">
+				<a href="/catalog/{{ brand.name }}/{{ car.model }}">
+					<img src="{{ car.image_url }}" alt="{{ car.model }}" class="car-image" onerror="this.src='/static/assets/cars/default.jpg'">
+					<h2>{{ car.model }}</h2>
+					<p>{{ car.type }}</p>
+				</a>
+			</div>
+		{% endfor %}
+	</div>
+</body>
+</html>
