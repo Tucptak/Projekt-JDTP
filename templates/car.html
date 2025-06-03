@@ -1,12 +1,45 @@
-<!-- templates/car.html -->
-<h1>{{ car.model }}</h1>
-<img src="{{ car.image_url }}" alt="{{ car.model }}" class="car-image" onerror="this.src='/static/assets/cars/default.jpg'" width="300" />
-<p>Price Range: ${{ car.price_min }} - ${{ car.price_max }}</p>
-<p>Type: {{ car.type }}</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ car.model }} Details</title>
+    <link rel="stylesheet" href="/static/css/car/main.css">
+</head>
+<body>
 
-<h3>Similar Cars</h3>
-<ul>
-  {% for similar in similar_cars %}
-    <li>{{ similar.model }} - ${{ similar.price_min }} to ${{ similar.price_max }}</li>
-  {% endfor %}
-</ul>
+<div style="margin: 20px;">
+        <a href="/catalog/{{ brand.name }}" class="back-button">← Back to Catalog</a>
+    </div>
+
+    <div class="car-detail-container">
+        <div class="main-car">
+            <img src="{{ car.image_url or '/static/assets/cars/default.jpg' }}" alt="{{ car.model }}">
+            <h1>{{ car.model }}</h1>
+            <p><strong>Type:</strong> {{ car.type }}</p>
+            <p><strong>Year:</strong> {{ car.year }}</p>
+            <p><strong>Horsepower:</strong> {{ car.horsepower }} HP</p>
+            <p><strong>Kilometers:</strong> {{ car.kilometers }} km</p>
+            <p><strong>Fuel:</strong> {{ car.gas_type }}</p>
+            <p><strong>Transmission:</strong> {{ car.transmission }}</p>
+            <p><strong>Estimated Price:</strong> ${{ car.price_min }} - ${{ car.price_max }}</p>
+        </div>
+
+        <hr>
+
+        <div class="similar-cars-section">
+    <h2>Similar Cars</h2>
+    <div class="similar-cars">
+        {% for similar_car in similar_cars %}
+            <div class="similar-car-card">
+                <a href="/catalog/{{ similar_car.brand_name }}/{{ similar_car.model }}">
+                    <img src="{{ similar_car.image_url or '/static/assets/cars/default.jpg' }}" alt="{{ similar_car.model }}" class="car-image" onerror="this.src='/static/assets/cars/default.jpg'">
+                </a>
+                <p>{{ similar_car.model }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+    </div>
+
+</body>
+</html>
