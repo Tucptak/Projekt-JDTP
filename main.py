@@ -48,27 +48,40 @@ def show_brand(brand_name):
 
 
 @app.route("/catalog/<brand_name>/<car_model>")
-def show_car(brand_name, car_model):
-	conn = get_db_connection()
-	car = conn.execute("""
-		SELECT * FROM cars
-		WHERE model = ? AND brand_id = (SELECT id FROM brands WHERE name = ?)
-	""", (car_model, brand_name)).fetchone()
+def car_detail(brand_name, car_model):
+    conn = get_db_connection()
 
+    # Get the main car
+    car = conn.execute('''
+        SELECT cars.*, brands.name AS brand_name
+        FROM cars
+        JOIN brands ON cars.brand_id = brands.id
+        WHERE brands.name = ? AND cars.model = ?
+    ''', (brand_name, car_model)).fetchone()
 
+    if not car:
+        conn.close()
+        return "Car not found", 404
 
-	if not car:
-		conn.close()
-		return "Car not found", 404
+    # Get similar cars (same type, price range +/- 10,000, not the same car)
+    similar_cars = conn.execute('''
+        SELECT cars.*, brands.name AS brand_name
+        FROM cars
+        JOIN brands ON cars.brand_id = brands.id
+        WHERE cars.type = ?
+          AND cars.id != ?
+          AND ABS((cars.price_min + cars.price_max)/2 - (? + ?)/2) <= 10000
+        LIMIT 5
+    ''', (car["type"], car["id"], car["price_min"], car["price_max"])).fetchall()
 
-	similar_cars = conn.execute("""
-		SELECT * FROM cars
-		WHERE type = ? AND id != ? AND ABS((price_min + price_max)/2 - (? + ?)/2) < 10000
-		LIMIT 5
-	""", (car["type"], car["id"], car["price_min"], car["price_max"])).fetchall()
+    conn.close()
 
-	conn.close()
-	return render_template("car.html", car=car, similar_cars=similar_cars)
+    return render_template(
+        "car.html",
+        car=car,
+        similar_cars=similar_cars,
+        brand={"name": brand_name}
+    )
 
 
 def precti_json(nazev_souboru):
